@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Capacitación Ministerial - Luxor Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #1A2B3C; /* 1. Azul Marino Intenso solicitado */
+            color: #E2E8F0; 
+            scroll-behavior: smooth;
+        }
+        .serif-excellence { font-family: 'Playfair Display', serif; }
+        .bg-navy-dark { background-color: #152332; } /* Tono ligeramente más oscuro para tarjetas */
+        .text-gold { color: #D4AF37; }
+        .bg-gold { background-color: #D4AF37; }
+        
+        /* Botón Verde solicitado anteriormente */
+        .btn-green {
+            background-color: #22c55e;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+        .btn-green:hover {
+            background-color: #16a34a;
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+        }
+
+        .glossy-effect { position: relative; overflow: hidden; }
+        .glossy-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
+            transform: rotate(45deg);
+            animation: shine 4s infinite;
+        }
+        @keyframes shine { 0% { left: -100%; } 100% { left: 100%; } }
+
+        .book-shadow { filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4)); }
+        .container-custom { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- HERO SECTION -->
+    <header class="relative pt-20 pb-28 px-6 overflow-hidden min-h-screen flex items-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-10 blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#1A2B3C] via-transparent to-[#1A2B3C]"></div>
+        </div>
+
+        <div class="container-custom grid md:grid-cols-2 gap-16 items-center relative z-10">
+            <div>
+                <!-- 3. Edición Especial - Luxor Store -->
+                <span class="text-gold font-black tracking-[0.4em] uppercase text-xs mb-6 inline-block px-3 py-1 border border-gold/20 rounded-md bg-gold/5">
+                    Edición Especial - Luxor Store
+                </span>
+                
+                <!-- 4. Título con reducción del 30% (text-3xl md:text-5xl) -->
+                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight text-white mb-6">
+                    Deja de sentirte como un "obrero no aprobado" y sirve a Dios con la <span class="serif-excellence italic text-gold font-normal">Excelencia</span> que Su obra merece.
+                </h1>
+                
+                <p class="text-lg text-gray-400 mb-10 leading-relaxed italic">
+                    Accede al Manual de Capacitación Ministerial: Una guía completa de más de 70 páginas para líderes que buscan madurez espiritual.
+                </p>
+
+                <a href="#pricing" class="btn-green glossy-effect font-black py-6 px-10 rounded-xl text-xl inline-flex items-center gap-3 shadow-2xl">
+                    ¡SÍ, QUIERO CAPACITARME POR SOLO US$7.90!
+                </a>
+            </div>
+
+            <div class="flex justify-center">
+                <img src="https://i.imgur.com/fW8Ja3g.png" alt="Manual de Capacitación" 
+                     class="w-full max-w-[400px] book-shadow transform hover:scale-105 transition-all duration-700">
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. TESTIMONIOS CARRUSEL AUTOMÁTICO -->
+    <section class="py-24 bg-navy-dark border-y border-white/5" x-data="{ 
+        active: 0, 
+        testimonios: [
+            { nombre: 'Hno. Ricardo Méndez', cargo: 'Líder de Jóvenes', texto: 'Sentía que mis mensajes eran repetitivos, pero este manual me dio el orden que mi ministerio necesitaba.', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop' },
+            { nombre: 'Pastora Elena Villalba', cargo: 'Ministerio de Enseñanza', texto: 'La profundidad doctrinal combinada con la práctica es excepcional. Me ayudó a estructurar clases con claridad.', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop' },
+            { nombre: 'Misionero Juan Carlos P.', cargo: 'Evangelismo Campo', texto: 'Lo que más valoro es el enfoque en el carácter. No es solo técnica, es un llamado a la humildad y dependencia.', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop' },
+            { nombre: 'Lucía Castro', cargo: 'Servidora Local', texto: 'Tenía miedo de subir al púlpito. Este manual derribó esa inseguridad dándome herramientas reales de homilética.', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop' },
+            { nombre: 'Diácono Samuel Torres', cargo: 'Administración de Iglesia', texto: 'El módulo de ética salvó a nuestro equipo de errores comunes. Es una guía práctica que todo obrero debe tener.', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop' }
+        ]
+    }" x-init="setInterval(() => { active = active === testimonios.length - 1 ? 0 : active + 1 }, 5000)">
+        <div class="container-custom max-w-4xl text-center">
+            <h2 class="text-3xl font-bold serif-excellence italic text-gold mb-16">Testimonios de Impacto</h2>
+            <div class="relative bg-white/5 p-12 rounded-[40px] border border-white/10">
+                <template x-for="(t, index) in testimonios" :key="index">
+                    <div x-show="active === index" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
+                        <img :src="t.img" class="w-24 h-24 rounded-full mx-auto mb-6 border-2 border-gold p-1 object-cover">
+                        <div class="flex justify-center mb-4 text-gold"><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i><i data-lucide="star" class="fill-current w-5 h-5"></i></div>
+                        <p class="text-2xl italic mb-8" x-text="'&quot;' + t.texto + '&quot;'"></p>
+                        <h4 class="font-bold text-gold uppercase tracking-widest text-sm" x-text="t.nombre"></h4>
+                        <p class="text-xs text-gray-500 mt-1 italic" x-text="t.cargo"></p>
+                    </div>
+                </template>
+                <div class="flex justify-center gap-2 mt-8">
+                    <template x-for="(t, index) in testimonios" :key="index">
+                        <button @click="active = index" :class="active === index ? 'bg-gold w-8' : 'bg-gray-600 w-2'" class="h-2 rounded-full transition-all duration-300"></button>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. INVERSIÓN (CAJA DORADA / TEXTO NEGRO) -->
+    <section id="pricing" class="py-32 px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold mb-12 text-gray-400 serif-excellence italic">Inversión en tu llamado</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="opacity-30">
+                    <p class="text-4xl font-black line-through">Cientos de $</p>
+                </div>
+                <!-- Caja en Color Dorado y Texto en Negro -->
+                <div class="bg-[#D4AF37] text-[#1A2B3C] p-12 rounded-[40px] shadow-2xl scale-110 border-4 border-white/20">
+                    <p class="text-sm font-black uppercase mb-4 tracking-widest">Edición Especial</p>
+                    <p class="text-7xl font-black leading-none italic serif-excellence">US$ 7.90</p>
+                    <p class="text-xs mt-6 uppercase font-bold tracking-tighter opacity-70">Un único pago para siempre</p>
+                </div>
+            </div>
+            <div class="mt-16">
+                <a href="#" class="btn-green glossy-effect font-black py-7 px-16 rounded-2xl text-2xl inline-block w-full md:w-auto shadow-2xl">
+                    ¡SÍ, QUIERO MI ACCESO AHORA!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-24 px-6 text-center border-t border-white/5 bg-[#152332]">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-2xl font-black mb-12 italic serif-excellence opacity-80">No permitas que la falta de preparación detenga lo que Dios quiere hacer a través de ti.</h2>
+            
+            <!-- 6. Texto bajado un 20% (text-[10px]) -->
+            <p class="font-black text-[10px] md:text-[11px] uppercase tracking-[0.5em] text-[#FFD700]" style="text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);">
+                © 2026 - LUXOR STORE - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
